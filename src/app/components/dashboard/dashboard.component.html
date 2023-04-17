@@ -1,0 +1,99 @@
+<body class="p-3 m-0 border-0 bd-example">
+  <div class="container">
+      <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+        <div *ngIf="auth.user$ | async as user" class="btn-primary">
+          
+            <div class="btn-outline-primary" *ngIf="emaillocal1== user.email">
+              <td>Local 1</td>
+              <p></p>
+              <td>Empleado: {{user.email}}</td>
+            </div >
+            <div *ngIf="emaillocal2== user.email">
+              <td>Local 2</td>
+              <p></p>
+              <td>Empleado: {{user.email}}</td>
+            </div>
+          
+            <div class="mi-div" *ngIf="emailjefe== user.email">
+              <nav  class="navbar navbar-expand-lg bs-body-color-rgb">
+                <div  class="container-fluid" >
+                  <img src="https://images.vexels.com/media/users/3/234842/isolated/preview/8984c5043d85ea253a574eea6f96d609-elementos-de-peluqueria-11.png" alt="Bootstrap" width="50" height="50">   
+                    <a class="navbar-brand" href="#">Peluqueria</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"  data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                      <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Local 1
+                          </a>
+                          <ul class="dropdown-menu">
+                              <li><button type="button" class="dropdown-item"  (click)="getCortes()" (click)="cortesUltimoDia(1)" >Ultimo dia</button></li>
+                              <li><button type="button" class="dropdown-item" (click)="getCortes()" (click)="cortesUltimaSemana(1)" >Ultima semana</button></li>
+                              <li><button type="button" class="dropdown-item" (click)="getCortes()" (click)="cortesUltimoMes(1)" >Ultimo mes</button></li>
+                          </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Local 2
+                          </a>
+                          <ul class="dropdown-menu">
+                              <li><button type="button" class="dropdown-item" (click)="getCortes()" (click)="cortesUltimoDia(2)" >Ultimo dia</button></li>
+                              <li><button type="button" class="dropdown-item" (click)="getCortes()" (click)="cortesUltimaSemana(2)" >Ultima semana</button></li>
+                              <li><button type="button" class="dropdown-item" (click)="getCortes()" (click)="cortesUltimoMes(2)" >Ultimo mes</button></li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </div>
+                </div>
+              </nav>
+            
+            </div>
+          </div>
+        <button type="button" (click)="logOut()" class="btn btn-light">Cerrar Sesion</button>
+      </header>
+      <form class="form-group row">
+        <div *ngIf="auth.user$ | async as user" class="btn-primary">
+            <div *ngIf="emaillocal1== user.email">
+              <app-local1></app-local1>
+            </div>
+            <div *ngIf="emaillocal2== user.email">
+              <app-local2></app-local2>
+            </div>
+        </div>
+        <div *ngIf="auth.user$ | async as user" class="btn-primary">
+          <div *ngIf="emailjefe== user.email">
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                  <tr>
+                    <td>Corte</td>
+                    <td>Cantidad</td>
+                    <td>Ganancia</td>
+                  </tr>
+                </thead>
+                  <tbody class="container">
+                    <tr>
+                      <td>Corte Adulto</td>
+                      <td>{{contadorCorteAdulto}}</td>
+                      <td>{{gananciaCorteAdulto}}</td>
+                    </tr>
+                    <tr>
+                      <td>Corte Barba</td>
+                      <td>{{contadorCorteBarba}}</td>
+                      <td>{{gananciaCorteBarba}}</td>
+                    </tr>
+                    <tr>
+                      <td>Corte Niño</td>
+                      <td>{{contadorCorteNinio}}</td>
+                      <td>{{gananciaCorteNinio}}</td>
+                    </tr>
+                  </tbody>
+              </table>
+                <td> Total: {{gananciaTotal}} $
+                </td>
+            </div>
+          </div>
+      </form>
+    </div>
+</body>

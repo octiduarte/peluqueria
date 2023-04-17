@@ -1,0 +1,19 @@
+body {
+    background-color: #000000; /* un tono claro y agradable al ojo */
+    font-family: "Helvetica Neue", Arial, sans-serif; /* una fuente sans-serif moderna */
+    font-size: 16px; /* tamaño de fuente legible */
+    line-height: 1.5; /* espacio entre líneas cómodo */
+    color: #333; /* color de texto oscuro */
+    margin: 0; /* eliminamos el margen predeterminado */
+    padding: 0; /* eliminamos el relleno predeterminado */
+  }
+div {
+    background-color: #000000; /* fondo blanco */
+    border-radius: 5px; /* bordes redondeados */
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1); /* sombra suave */
+    padding: 20px; /* relleno para el contenido */
+    margin-bottom: 20px; /* espacio entre elementos */
+    font-size: 16px; /* tamaño de fuente legible */
+    line-height: 1.5; /* espacio entre líneas cómodo */
+    color: #333; /* color de texto oscuro */
+  }
