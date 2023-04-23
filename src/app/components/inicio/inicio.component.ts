@@ -11,15 +11,23 @@ export class InicioComponent implements OnInit{
   
 
   constructor(public auth: AuthService, private router: Router){}
-  ngOnInit(): void {
-    this.auth.isAuthenticated$.subscribe(isAuthenticaed =>{
-      if(isAuthenticaed){
-        this.router.navigate(['/dashboard'])
+ 
+  async ngOnInit() {
+    this.auth.user$.subscribe(async (user) => {
+      if (user) {
+        const email = user.email;
+        if (email === 'octiduarte@gmail.com') {
+           this.router.navigate(['admin']);
+        } if (email === 'octiduarte@hotmail.com') {
+           this.router.navigate(['local1']);
+        }  if (email === 'doc7abio@gmail.com') {
+           this.router.navigate(['local2']);
+        }
       }
-    })
+    });
   }
 
-  login(){
+  async login(){
     this.auth.loginWithRedirect()
   }
 

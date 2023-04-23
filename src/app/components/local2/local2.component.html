@@ -1,11 +1,35 @@
-<div class="container">
-  <div class="content">
-    <button type="submit" class="btn btn-primary" (click)="mostrarDialogo()" (click)="nombre = 'Corte Adulto'" style="margin-top: 20px;" >Corte Adulto</button>
-  </div>
-  <div class="content">
-    <button type="submit" class="btn btn-primary"  (click)="mostrarDialogo()" (click)="nombre = 'Corte Barba'" style="margin-top: 20px;">Corte barba</button>
-  </div>
-  <div class="content">
-    <button type="submit" class="btn btn-primary" (click)="mostrarDialogo()" (click)="nombre = 'Corte Niño'" style="margin-top: 20px;" >Corte Niño</button>
-  </div>
-</div>
+<html class="container-xxl bd-gutter mt-3 my-md-4 bd-layout">
+  <header class=" bd-navbar sticky-top">
+    <nav class="nav" *ngIf="auth.user$ | async as user">
+      <div class="nav-link active">Local 2</div>
+      <div class="nav-link active">Usuario: {{user.email}}</div>
+      <button type="button" class="btn btn-danger"  (click)="logOut()">Cerrar Sesion</button>
+   
+      </nav>
+    </header>
+  <body>
+    <div class="container">
+      <div class="card" style="width: 18rem;">
+        <img src="https://img.freepik.com/vector-premium/corte-pelo-hombre-ilustracion-vectorial-dibujada-mano-peinado-hombre_573689-290.jpg?w=2000" class="card-img-top" alt="b">
+        <div class="card-body">
+          <h5 class="card-title">Corte para Adultos</h5>
+          <button type="button" class="btn btn-dark" (click)="mostrarDialogo()" (click)="nombre = 'Corte Adulto'">Cargar</button>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem;" >
+        <img src="https://cdn-icons-png.flaticon.com/512/159/159117.png" class="card-img-top mostache-img"  alt="beard-img">
+        <div class="card-body">
+          <h5 class="card-title">Corte para Barbas</h5>
+          <button type="button" class="btn btn-dark"  (click)="mostrarDialogo()" (click)="nombre = 'Corte Barba'">Cargar</button>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem;">
+        <img src="https://static.thenounproject.com/png/1329180-200.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Corte para Niños</h5>
+          <button type="button" class="btn btn-dark" (click)="mostrarDialogo()" (click)="nombre = 'Corte Niño'" >Cargar</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

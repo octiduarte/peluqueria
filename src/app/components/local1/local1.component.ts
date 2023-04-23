@@ -21,7 +21,7 @@ import { map } from 'rxjs/operators';
 })
 export class Local1Component{
 
-constructor(public dataService:DataServices,  public dialog: MatDialog,){
+constructor(public dataService:DataServices,  public dialog: MatDialog,public auth: AuthService){
 
 }
 
@@ -46,6 +46,10 @@ constructor(public dataService:DataServices,  public dialog: MatDialog,){
   sumarCorte(){
     let miCorte = new Corte(this.nombre ,moment().tz('America/Argentina/Buenos_Aires').format(),1);
     this.dataService.guardarCortes(miCorte);
+  }
+
+  logOut(){
+    this.auth.logout()
   }
 
 }

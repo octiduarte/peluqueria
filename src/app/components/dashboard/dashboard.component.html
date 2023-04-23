@@ -15,39 +15,7 @@
             </div>
           
             <div class="mi-div" *ngIf="emailjefe== user.email">
-              <nav  class="navbar navbar-expand-lg bs-body-color-rgb">
-                <div  class="container-fluid" >
-                  <img src="https://images.vexels.com/media/users/3/234842/isolated/preview/8984c5043d85ea253a574eea6f96d609-elementos-de-peluqueria-11.png" alt="Bootstrap" width="50" height="50">   
-                    <a class="navbar-brand" href="#">Peluqueria</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"  data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                      <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                      <ul class="navbar-nav">
-                        <li class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Local 1
-                          </a>
-                          <ul class="dropdown-menu">
-                              <li><button type="button" class="dropdown-item"  (click)="getCortes()" (click)="cortesUltimoDia(1)" >Ultimo dia</button></li>
-                              <li><button type="button" class="dropdown-item" (click)="getCortes()" (click)="cortesUltimaSemana(1)" >Ultima semana</button></li>
-                              <li><button type="button" class="dropdown-item" (click)="getCortes()" (click)="cortesUltimoMes(1)" >Ultimo mes</button></li>
-                          </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Local 2
-                          </a>
-                          <ul class="dropdown-menu">
-                              <li><button type="button" class="dropdown-item" (click)="getCortes()" (click)="cortesUltimoDia(2)" >Ultimo dia</button></li>
-                              <li><button type="button" class="dropdown-item" (click)="getCortes()" (click)="cortesUltimaSemana(2)" >Ultima semana</button></li>
-                              <li><button type="button" class="dropdown-item" (click)="getCortes()" (click)="cortesUltimoMes(2)" >Ultimo mes</button></li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </div>
-                </div>
-              </nav>
+             
             
             </div>
           </div>
@@ -55,12 +23,7 @@
       </header>
       <form class="form-group row">
         <div *ngIf="auth.user$ | async as user" class="btn-primary">
-            <div *ngIf="emaillocal1== user.email">
-              <app-local1></app-local1>
-            </div>
-            <div *ngIf="emaillocal2== user.email">
-              <app-local2></app-local2>
-            </div>
+           
         </div>
         <div *ngIf="auth.user$ | async as user" class="btn-primary">
           <div *ngIf="emailjefe== user.email">

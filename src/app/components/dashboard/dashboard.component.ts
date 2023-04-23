@@ -65,26 +65,6 @@ export class DashboardComponent implements OnInit {
   }
 
  
-
-  /*cortesPorDia(){
-    var contadorAdulto=0;
-    var contadorBarba=0;
-    var contadorNinio=0;
-      for (let i = 0; i < this.cortesLectura.length; i++) {
-        if(this.cortesLectura[i].local==1){
-          if(this.corteAdulto==this.cortesLectura[i].nombre){
-            contadorAdulto=contadorAdulto+1;
-          }
-          if(this.corteBarba==this.cortesLectura[i].nombre){
-            contadorBarba=contadorBarba+1;
-          }
-          if(this.corteAdulto==this.cortesLectura[i].nombre){
-            contadorNinio=contadorNinio+1;
-          }
-      }
-    }
-  }
-*/
   cortesUltimoMes(local:number) {
     var contadorAdulto=0;
     var contadorBarba=0;

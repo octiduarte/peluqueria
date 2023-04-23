@@ -1,0 +1,31 @@
+td {
+    background-color: #5b5b5b20;
+    color: #000000;
+    font-weight: 600;
+    text-align: justify;
+    padding: 10px;
+    border-radius: 5px; /* agrega borde curvo */
+  }
+ 
+  
+button[type="submit"] {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #5d1c1c;
+    background-color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+
+
+.mi-div{
+    background-color: rgba(199, 195, 195, 0.486);
+    border-radius: 15px;
+    display:flex;
+}

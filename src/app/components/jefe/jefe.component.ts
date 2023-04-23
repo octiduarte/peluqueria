@@ -3,6 +3,7 @@ import { LecturaServices } from 'src/app/lectura.services';
 import { HttpClient } from '@angular/common/http';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import { get } from 'firebase/database';
+import { AuthService } from '@auth0/auth0-angular';
 @Component({
   selector: 'app-jefe',
   templateUrl: './jefe.component.html',
@@ -11,7 +12,7 @@ import { get } from 'firebase/database';
 export class JefeComponent implements OnInit{
 
 
-  constructor(private http:HttpClient, private lecturaService: LecturaServices){
+  constructor(public auth: AuthService,private http:HttpClient, private lecturaService: LecturaServices){
 
   }
 
@@ -23,6 +24,19 @@ export class JefeComponent implements OnInit{
   corteAdulto: string = "Corte Adulto";
   corteBarba: string = "Corte Barba";
   corteNinio: string = "Corte Niño";
+  contadorCorteAdulto: number;
+  contadorCorteBarba : number;
+  contadorCorteNinio : number;
+  
+  gananciaCorteBarba: number;
+  gananciaCorteNinio : number;
+  gananciaCorteAdulto: number;
+  gananciaTotal: number;
+ 
+  
+  logOut(){
+    this.auth.logout()
+  }
 
   getCortes() {
     this.http.get('https://peluqueria-8a126-default-rtdb.firebaseio.com/datos.json')
@@ -49,6 +63,8 @@ export class JefeComponent implements OnInit{
       }
     }
   }
+
+
 
   cortesUltimoMes(local:number) {
     var contadorAdulto=0;
@@ -79,8 +95,14 @@ export class JefeComponent implements OnInit{
         }
       }
     }
-    console.log("corte adulto"+contadorAdulto,"corte barba"+contadorBarba,"corte ninio"+contadorNinio);
-    
+    this.contadorCorteAdulto=contadorAdulto;
+    this.contadorCorteBarba=contadorBarba;
+    this.contadorCorteNinio=contadorNinio;
+
+    this.gananciaCorteAdulto = contadorAdulto*1500;
+    this.gananciaCorteBarba = contadorBarba*500;
+    this.gananciaCorteNinio = contadorNinio*400;
+    this.gananciaTotal = this.gananciaCorteAdulto + this.gananciaCorteBarba + this.gananciaCorteNinio;
   }
 
   cortesUltimaSemana(local:number) {
@@ -111,7 +133,15 @@ export class JefeComponent implements OnInit{
         }
       }
     }
-    console.log("corte adulto"+contadorAdulto,"corte barba"+contadorBarba,"corte ninio"+contadorNinio);
+    this.contadorCorteAdulto=contadorAdulto;
+    this.contadorCorteBarba=contadorBarba;
+    this.contadorCorteNinio=contadorNinio;
+
+    this.gananciaCorteAdulto = contadorAdulto*1500;
+    this.gananciaCorteBarba = contadorBarba*500;
+    this.gananciaCorteNinio = contadorNinio*400;
+    this.gananciaTotal = this.gananciaCorteAdulto + this.gananciaCorteBarba + this.gananciaCorteNinio;
+
   }
 
   cortesUltimoDia(local:number) {
@@ -146,7 +176,14 @@ export class JefeComponent implements OnInit{
         }
       }
     }
-    console.log("corte adulto"+contadorAdulto,"corte barba"+contadorBarba,"corte ninio"+contadorNinio);
+    this.contadorCorteAdulto=contadorAdulto;
+    this.contadorCorteBarba=contadorBarba;
+    this.contadorCorteNinio=contadorNinio;
+
+    this.gananciaCorteAdulto = contadorAdulto*1500;
+    this.gananciaCorteBarba = contadorBarba*500;
+    this.gananciaCorteNinio = contadorNinio*400;
+    this.gananciaTotal = this.gananciaCorteAdulto + this.gananciaCorteBarba + this.gananciaCorteNinio;
   }
   
   
