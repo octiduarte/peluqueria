@@ -4,6 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import { get } from 'firebase/database';
 import { AuthService } from '@auth0/auth0-angular';
+import * as $ from 'jquery';
+
 @Component({
   selector: 'app-jefe',
   templateUrl: './jefe.component.html',
@@ -18,8 +20,12 @@ export class JefeComponent implements OnInit{
 
   ngOnInit(): void {
    this.getCortes();
+   
 
   }
+
+
+  
   cortesLectura: any[] = [];
   corteAdulto: string = "Corte Adulto";
   corteBarba: string = "Corte Barba";

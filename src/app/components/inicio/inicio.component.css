@@ -1,11 +1,12 @@
-html, body {
-  height: 100%;
-  margin: 0;
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+
+  background-color: black;
+}
+.container-fluid{
+  justify-content: space-around;
 }
 
-.centrado {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}

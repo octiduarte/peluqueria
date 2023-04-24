@@ -1,3 +1,4 @@
+@import '~mdb-ui-kit/css/mdb.min.css';
 td {
     background-color: #5b5b5b20;
     color: #000000;
@@ -29,3 +30,4 @@ button[type="submit"] {
     border-radius: 15px;
     display:flex;
 }
+
