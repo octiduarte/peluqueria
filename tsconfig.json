@@ -3,7 +3,7 @@
   "compilerOptions": {
     "strictPropertyInitialization": false,
     "baseUrl": "./",
-    "outDir": "./dist/out-tsc",
+    "outDir": "./dist/peluqueria-app",
     "forceConsistentCasingInFileNames": false,
     "strict": true,
     "noImplicitOverride": true,

@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import { get } from 'firebase/database';
 import { AuthService } from '@auth0/auth0-angular';
-import * as $ from 'jquery';
 
 @Component({
   selector: 'app-jefe',
@@ -24,8 +23,6 @@ export class JefeComponent implements OnInit{
 
   }
 
-
-  
   cortesLectura: any[] = [];
   corteAdulto: string = "Corte Adulto";
   corteBarba: string = "Corte Barba";

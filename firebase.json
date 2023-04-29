@@ -1,1 +1,19 @@
-{}
+{
+  "database": {
+    "rules": "n"
+  },
+  "hosting": {
+    "public": "dist/peluqueria-app",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
