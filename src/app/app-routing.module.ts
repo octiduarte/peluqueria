@@ -5,6 +5,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { JefeComponent } from './components/jefe/jefe.component';
 import { Local1Component } from './components/local1/local1.component';
 import { Local2Component } from './components/local2/local2.component';
+import { CatalogoComponent } from './components/catalogo/catalogo.component';
 
 const routes: Routes = [
   {path: '' , redirectTo : 'inicio' ,pathMatch: 'full'},
@@ -12,8 +13,9 @@ const routes: Routes = [
   {path: 'dashboard', component: DashboardComponent},
   {path: 'admin', component: JefeComponent},
   {path: 'local1' , component: Local1Component},
-  {path: 'local2', component: Local2Component}
-];
+  {path: 'local2', component: Local2Component},
+  {path: 'catalogo', component:CatalogoComponent } 
+]; 
 
 
 @NgModule({

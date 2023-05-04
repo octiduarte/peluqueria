@@ -23,6 +23,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { Local1Component } from './components/local1/local1.component';
 import { Local2Component } from './components/local2/local2.component';
 import { JefeComponent } from './components/jefe/jefe.component';
+import { CatalogoComponent } from './components/catalogo/catalogo.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { JefeComponent } from './components/jefe/jefe.component';
     DialogoConfirmacionComponent,
     Local1Component,
     Local2Component,
-    JefeComponent
+    JefeComponent,
+    CatalogoComponent
   ],
   imports: [
     BrowserModule,

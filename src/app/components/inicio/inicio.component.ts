@@ -31,4 +31,7 @@ export class InicioComponent implements OnInit{
     this.auth.loginWithRedirect()
   }
 
+  catalogo(){
+    this.router.navigate(['catalogo']);
+  }
 }

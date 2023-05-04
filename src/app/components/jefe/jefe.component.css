@@ -1,7 +1,7 @@
 @import '~mdb-ui-kit/css/mdb.min.css';
 td {
-    background-color: #5b5b5b20;
-    color: #000000;
+    background-color: #dedede00;
+    color: #ffffff;
     font-weight: 600;
     text-align: justify;
     padding: 10px;
@@ -16,7 +16,7 @@ button[type="submit"] {
     font-weight: bold;
     text-transform: uppercase;
     color: #5d1c1c;
-    background-color: #333;
+    background-color: #ffffff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -26,8 +26,25 @@ button[type="submit"] {
 
 
 .mi-div{
-    background-color: rgba(199, 195, 195, 0.486);
+    background-color: rgb(255, 255, 255);
     border-radius: 15px;
     display:flex;
 }
+
+.colortitulo{
+  color: #ffffff;
+}
+
+
+
+.colorhtml{
+  background-color: #3a3a40fa;
+}
+
+
+.table-group-divider[_ngcontent-wmi-c10] {
+  border-top: 2px solid;
+  border-top-color: white;
+}
+
 
