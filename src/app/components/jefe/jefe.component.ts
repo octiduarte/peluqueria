@@ -35,6 +35,8 @@ export class JefeComponent implements OnInit{
   gananciaCorteNinio : number;
   gananciaCorteAdulto: number;
   gananciaTotal: number;
+
+
  
   
   logOut(){
@@ -46,69 +48,55 @@ export class JefeComponent implements OnInit{
     .subscribe((value: object) => {
       this.cortesLectura = Object.entries(value).map(([key, data]) => ({ key, ...data }));
       });   
+
+      
   }
 
-  cortesPorDia(){
-    var contadorAdulto=0;
-    var contadorBarba=0;
-    var contadorNinio=0;
-      for (let i = 0; i < this.cortesLectura.length; i++) {
-        if(this.cortesLectura[i].local==1){
-          if(this.corteAdulto==this.cortesLectura[i].nombre){
-            contadorAdulto=contadorAdulto+1;
-          }
-          if(this.corteBarba==this.cortesLectura[i].nombre){
-            contadorBarba=contadorBarba+1;
-          }
-          if(this.corteAdulto==this.cortesLectura[i].nombre){
-            contadorNinio=contadorNinio+1;
-          }
-      }
-    }
-  }
+ 
 
 
 
-  cortesUltimoMes(local:number) {
-    var contadorAdulto=0;
-    var contadorBarba=0;
-    var contadorNinio=0;
+  cortesUltimoMes(local: number){
+    this.getCortes();
+    let contadorCorteAdulto = 0;
+    let contadorCorteBarba = 0;
+    let contadorCorteNinio = 0;
+  
     const hoy = new Date();
-    let contador = 0;
+    const fechaLimite = new Date();
+    fechaLimite.setMonth(fechaLimite.getMonth() - 1);
+    
+  
     for (let i = 0; i < this.cortesLectura.length; i++) {
       const corte = this.cortesLectura[i];
       if (corte.local === local) {
         const fechaCorte = new Date(corte.fecha);
-        if (
-          fechaCorte.getMonth() === hoy.getMonth() &&
-          fechaCorte.getFullYear() === hoy.getFullYear()
-        ) {
-          switch (corte.nombre) {
-            case "Corte Adulto":
-              contadorAdulto++;
-              break;
-            case "Corte Barba":
-              contadorBarba++;
-              break;
-            case "Corte Niño":
-              contadorNinio++;
-              break;
+        if (fechaCorte > fechaLimite && fechaCorte <= hoy) {
+          if(this.corteAdulto==this.cortesLectura[i].nombre){
+            contadorCorteAdulto=contadorCorteAdulto+1;
           }
-          contador++;
+          if(this.corteBarba==this.cortesLectura[i].nombre){
+            contadorCorteBarba=contadorCorteBarba+1;
+          }
+          if(this.corteNinio==this.cortesLectura[i].nombre){
+            contadorCorteNinio=contadorCorteNinio+1;
+          }
         }
       }
     }
-    this.contadorCorteAdulto=contadorAdulto;
-    this.contadorCorteBarba=contadorBarba;
-    this.contadorCorteNinio=contadorNinio;
-
-    this.gananciaCorteAdulto = contadorAdulto*1500;
-    this.gananciaCorteBarba = contadorBarba*500;
-    this.gananciaCorteNinio = contadorNinio*400;
+  
+    this.contadorCorteAdulto = contadorCorteAdulto;
+    this.contadorCorteBarba = contadorCorteBarba;
+    this.contadorCorteNinio = contadorCorteNinio;
+  
+    this.gananciaCorteAdulto = contadorCorteAdulto * 1500;
+    this.gananciaCorteBarba = contadorCorteBarba * 500;
+    this.gananciaCorteNinio = contadorCorteNinio * 400;
     this.gananciaTotal = this.gananciaCorteAdulto + this.gananciaCorteBarba + this.gananciaCorteNinio;
   }
 
   cortesUltimaSemana(local:number) {
+    this.getCortes();
     var contadorAdulto=0;
     var contadorBarba=0;
     var contadorNinio=0;
@@ -148,6 +136,7 @@ export class JefeComponent implements OnInit{
   }
 
   cortesUltimoDia(local:number) {
+    this.getCortes();
     var contadorAdulto=0;
     var contadorBarba=0;
     var contadorNinio=0;
@@ -188,6 +177,5 @@ export class JefeComponent implements OnInit{
     this.gananciaCorteNinio = contadorNinio*400;
     this.gananciaTotal = this.gananciaCorteAdulto + this.gananciaCorteBarba + this.gananciaCorteNinio;
   }
-  
   
 }
